@@ -2,7 +2,7 @@
 (function () {
   var D = window.WIMPA || [], CATS = window.WIMPA_CATS || {};
   var AW = { gold: '1st Place · Gold', silver: '2nd Place · Silver', bronze: '3rd Place · Bronze', hm: 'Honorable Mention' };
-  var ED = { 1: '1st WIMPA', 2: '2nd WIMPA', 3: '3rd WIMPA', 4: '4th WIMPA', 5: '5th WIMPA · 2026' };
+  var ED = { 1: '1st WIMPA', 2: '2nd WIMPA', 3: '3rd WIMPA', 4: '4th WIMPA', 5: '5th WIMPA' };
   var page = document.body.getAttribute('data-page');
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var esc = function (s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
@@ -10,7 +10,7 @@
   var Tn = function (id) { return 'images/t/' + id + '.jpg'; };
 
   /* ---------- header / footer ---------- */
-  var links = [['winners.html', 'Winners 2026', 'winners'], ['archive.html', 'Past Winners', 'archive'], ['enter.html', 'Categories & Rules', 'enter'], ['jury.html', 'Jury', 'jury'], ['about.html', 'About', 'about']];
+  var links = [['winners.html', '5th Winners', 'winners'], ['archive.html', 'Past Winners', 'archive'], ['enter.html', 'Categories & Rules', 'enter'], ['jury.html', 'Jury', 'jury'], ['about.html', 'About', 'about']];
   var hdr = document.createElement('header'); hdr.className = 'hdr';
   hdr.innerHTML = '<div class="wrap"><a class="logo" href="index.html"><b>6th WIMPA</b><span>Washington International Mobile Photography Awards</span></a>' +
     '<button class="burger" aria-label="Menu">&#9776;</button><nav class="nav">' +
@@ -100,7 +100,7 @@
     if (p) $('#potd').innerHTML = '<div data-scope><div class="card" data-id="' + p.id + '"><img src="' + W(p.img[0][0]) + '" alt="' + esc(p.title) + '"></div></div>' +
       '<div><p class="kicker">Photograph of the Day</p><h2>' + esc(p.title) + '</h2><p class="a" style="font-size:18px;margin:0 0 6px">' + esc(p.name) + (p.state ? ', ' + esc(p.state) : '') + '</p>' +
       '<span class="badge ' + p.aw + '"><i></i>' + AW[p.aw] + ' · ' + esc(CATS[p.cat]) + '</span><p style="color:var(--ink-2);margin-top:20px">' + esc(p.desc) + '</p>' +
-      '<a class="more" href="winners.html">See all 2026 winners</a></div>';
+      '<a class="more" href="winners.html">See all 5th WIMPA winners</a></div>';
 
     // 5th edition first-place winners
     var golds = D.filter(function (e) { return e.ed === 5 && e.aw === 'gold'; });
