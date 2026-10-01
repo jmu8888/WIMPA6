@@ -198,3 +198,14 @@ table.prizes th{font-size:11px;letter-spacing:.16em;text-transform:uppercase;col
   .lb .nx{right:8px;top:40%}.lb .pv{top:40%}
   .lb .info .t{font-size:24px}
 }
+
+/* language toggle */
+.hright{order:3;display:flex;align-items:center;gap:8px;margin-left:24px}
+.nav{order:2;margin-left:auto}
+.lang{font-size:13px;letter-spacing:.06em;padding:8px 14px;border:1px solid var(--ink);border-radius:999px;white-space:nowrap}
+.lang:hover{background:var(--ink);color:#fff}
+@media(max-width:960px){.hright{margin-left:auto}}
+:lang(zh) body,body:lang(zh){font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",var(--sans)}
+:lang(zh) h1,:lang(zh) h2,:lang(zh) h3,:lang(zh) .card .t,:lang(zh) .lb .info .t,:lang(zh) .logo b{font-family:"Noto Serif SC","Songti SC",var(--serif);font-weight:600;letter-spacing:.02em}
+:lang(zh) .kicker,:lang(zh) .nav a,:lang(zh) .btn,:lang(zh) .badge,:lang(zh) .tabs button,:lang(zh) .subhead,:lang(zh) .more,:lang(zh) .stats span,:lang(zh) .ftr h4{letter-spacing:.08em}
+:lang(zh) .hero h1{line-height:1.15}

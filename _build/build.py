@@ -50,6 +50,35 @@ def clean_desc(e):
     m = re.match(r'^([^㐀-鿿]{40,}?)(?=[㐀-鿿《])', d)   # English part before Chinese
     return m.group(1).strip() if m else ''
 
+def zh_part(t):
+    # keep the Chinese part of a bilingual string
+    t = re.sub(r'[（(]已跟拍摄者沟通好可以发表[）)]?', '', t)
+    z = re.sub(r"[A-Za-z][A-Za-z0-9 '’\-,.&!?]*", ' ', t)
+    z = re.sub(r'[（(]\s*[)）]', '', z)
+    z = re.sub(r'\s+', ' ', z).strip(' _-·|()（）')
+    return z
+
+def zh_title(e):
+    t = e['title'].strip()
+    if CJK.search(t):
+        z = zh_part(t)
+        return z if len(re.findall(r'[㐀-鿿]', z)) >= 2 else t
+    return clean_title(t)
+
+def zh_name(n):
+    n = (n or '').strip()
+    if re.search(r'[㐀-鿿]', n):
+        m = re.search(r'[（(]([㐀-鿿]+)[）)]', n)
+        return m.group(1) if m else zh_part(n)
+    return clean_name(n)
+
+def zh_desc(e):
+    d = (e['desc'] or '').strip()
+    if e['title'] in T.get('descs_zh', {}): return T['descs_zh'][e['title']]
+    if not re.search(r'[㐀-鿿]', d): return ''
+    i = re.search(r'[㐀-鿿《“]', d).start()
+    return d[i:].strip() if i > 40 else d
+
 os.makedirs(os.path.join(SITE, 'images', 'w'), exist_ok=True)
 os.makedirs(os.path.join(SITE, 'images', 't'), exist_ok=True)
 def save(src, rel, size, q):
@@ -72,7 +101,8 @@ for i, e in enumerate(E):
         imgs.append([f'{eid}-{n}', w, h])
     out.append(dict(id=eid, ed=e['edition'], cat=e['category'], aw=e['award'],
                     title=clean_title(e['title']), name=clean_name(e['name']),
-                    state=(e['state'] or '').strip(), desc=clean_desc(e), img=imgs))
+                    state=(e['state'] or '').strip(), desc=clean_desc(e), img=imgs,
+                    tz=zh_title(e), nz=zh_name(e['name']), dz=zh_desc(e)))
 js = 'window.WIMPA_CATS=' + json.dumps(CATS, ensure_ascii=False) + ';\nwindow.WIMPA=' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n'
 open(os.path.join(SITE, 'assets', 'data.js'), 'w', encoding='utf-8').write(js)
 print(len(out), 'entries,', sum(len(x['img']) for x in out), 'images')
