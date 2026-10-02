@@ -1,0 +1,51 @@
+/* WordPress-specific additions to site.css: menus with dropdowns, carried-over pages */
+
+/* menu */
+.nav .menu{list-style:none;margin:0;padding:0;display:flex;gap:26px;align-items:center}
+.nav .menu li{position:relative}
+.nav .menu .current-menu-item>a,.nav .menu .current-menu-ancestor>a{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
+.nav .sub-menu{list-style:none;margin:0;padding:10px 0;position:absolute;top:100%;left:-18px;min-width:260px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 32px rgba(0,0,0,.08);display:none;z-index:60}
+.nav .menu li:hover>.sub-menu,.nav .menu li:focus-within>.sub-menu{display:block}
+.nav .sub-menu a{display:block;padding:9px 18px;font-size:12px;letter-spacing:.06em;text-transform:none;white-space:normal}
+.nav .sub-menu a:hover{background:var(--bg-2)}
+.nav .sub-menu .sub-menu{position:static;display:block;border:0;box-shadow:none;padding:0 0 4px 14px;min-width:0}
+.nav .sub-menu .sub-menu a{color:var(--muted);padding:6px 18px}
+.nav .menu>li.menu-item-has-children>a::after{content:"";display:inline-block;width:5px;height:5px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);margin:0 0 3px 7px}
+:lang(zh) .nav .menu a{letter-spacing:.04em}
+@media(max-width:1200px){.nav .menu{gap:18px}.nav .menu a{font-size:12px;letter-spacing:.08em}}
+@media(max-width:960px){
+  .nav{overflow:auto;max-height:calc(100vh - 72px)}
+  .nav .menu{flex-direction:column;gap:0;width:100%}
+  .nav .menu li{width:100%}
+  .nav .menu>li>a{display:block}
+  .nav .sub-menu{position:static;display:block;border:0;box-shadow:none;padding:0 0 8px;min-width:0;background:var(--bg-2)}
+  .nav .sub-menu a{text-align:center;border-top:0;padding:8px}
+  .nav .menu>li.menu-item-has-children>a::after{display:none}
+}
+
+/* pages carried over from the earlier site */
+section.legacy{padding:56px 0 96px}
+.legacy .prose{max-width:1040px}
+.legacy h2{font-family:var(--serif);font-weight:500;font-size:36px;margin:56px 0 20px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.legacy h2:first-child{margin-top:0}
+.legacy h3{font-size:24px;margin:36px 0 12px}
+.legacy p{color:var(--ink-2);max-width:820px}
+.legacy a{border-bottom:1px solid var(--line)}
+.legacy a:hover{border-color:var(--ink)}
+.legacy table{border-collapse:collapse;margin:16px 0}
+.legacy td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.wimpa-legacy-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 20px;margin:20px 0 32px}
+.wimpa-legacy-gallery.single{grid-template-columns:1fr;max-width:820px}
+.wimpa-legacy-gallery figure{margin:0}
+.wimpa-legacy-gallery a.wl-img{border:0;display:block;background:#f1f1f1;cursor:zoom-in}
+.wimpa-legacy-gallery:not(.single) a.wl-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.wimpa-legacy-gallery.single a.wl-img img{width:auto;max-height:720px;margin:0 auto}
+.wimpa-legacy-gallery figcaption{font-family:var(--serif);font-size:18px;line-height:1.3;margin-top:10px}
+:lang(zh) .wimpa-legacy-gallery figcaption,.wimpa-legacy-gallery figcaption{font-family:var(--serif),"Noto Serif SC",serif}
+@media(max-width:900px){.wimpa-legacy-gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.wimpa-legacy-gallery{grid-template-columns:1fr}}
+.wl-embed{position:relative;aspect-ratio:16/9;max-width:960px;margin:24px 0;background:#000}
+.wl-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.legacy a.wl-button,.legacy .wl-button{display:inline-block;padding:13px 28px;background:var(--ink);color:#fff;border:1px solid var(--ink);font-size:13px;letter-spacing:.12em}
+.legacy a.wl-button:hover{background:#fff;color:var(--ink)}
+@media(min-width:961px){.nav .menu>li>.sub-menu{max-height:calc(100vh - 96px);overflow-y:auto}}

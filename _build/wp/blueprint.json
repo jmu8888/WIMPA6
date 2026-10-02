@@ -1,0 +1,11 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/",
+  "preferredVersions": { "php": "8.2", "wp": "latest" },
+  "steps": [
+    { "step": "login", "username": "admin" },
+    { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "wordpress-importer" } },
+    { "step": "activateTheme", "themeFolderName": "wimpa6" },
+    { "step": "importWxr", "file": { "resource": "vfs", "path": "/wordpress/wimpa-import/wimpa6-content.xml" } }
+  ]
+}

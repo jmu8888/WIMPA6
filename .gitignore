@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+_build/wp/import/
+_build/wp/playground.log
