@@ -241,3 +241,5 @@ table.prizes th{font-size:11px;letter-spacing:.16em;text-transform:uppercase;col
 .cer-videos video{width:100%;aspect-ratio:16/9;background:#000;display:block}
 @media(max-width:800px){.cer-videos{grid-template-columns:1fr}}
 .hero h1{font-size:clamp(38px,5.2vw,72px)}
+.enroll-note{display:inline-block;margin-top:40px;padding:14px 26px;border:1px solid var(--accent);color:var(--ink);font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+:lang(zh) .enroll-note{letter-spacing:.08em}
