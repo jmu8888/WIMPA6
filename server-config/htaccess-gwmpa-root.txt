@@ -1,0 +1,22 @@
+# BEGIN WMPA6 new site at the root (added 2026-10-03; remove this block to restore the old home page)
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+# Old WordPress home page
+RewriteRule ^legacy/?$ https://www.gwmpa.org/?page_id=5813 [R=302,L]
+# New site at the root. Requests with a query string (?page_id=...) still go to WordPress.
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^$ wimpa6/index.html [L]
+RewriteRule ^zh/?$ wimpa6/zh/index.html [L]
+RewriteRule ^zh/(about|archive|ceremony|enter|jury|winners|index)\.html$ wimpa6/zh/$1.html [L]
+RewriteRule ^(about|archive|ceremony|enter|jury|winners|index)\.html$ wimpa6/$1.html [L]
+RewriteRule ^(assets|images)/(.+)$ wimpa6/$1/$2 [L]
+</IfModule>
+# END WMPA6
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+
+# END WordPress
