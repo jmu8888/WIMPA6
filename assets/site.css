@@ -232,6 +232,8 @@ table.prizes th{font-size:11px;letter-spacing:.16em;text-transform:uppercase;col
 .wimpa-legacy-gallery a.wl-img img{width:100%;aspect-ratio:3/2;object-fit:cover}
 @media(max-width:900px){.wimpa-legacy-gallery{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.wimpa-legacy-gallery{grid-template-columns:1fr}}
+.wimpa-legacy-gallery.cer-award{grid-template-columns:repeat(2,1fr)}
+@media(max-width:520px){.wimpa-legacy-gallery.cer-award{grid-template-columns:1fr}}
 .cer-hero{margin:0}
 .cer-hero a{display:block;cursor:zoom-in}
 .cer-hero img{width:100%;height:auto}
