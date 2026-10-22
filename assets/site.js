@@ -15,7 +15,7 @@
     AW: { gold: '一等奖 · 金奖', silver: '二等奖 · 银奖', bronze: '三等奖 · 铜奖', hm: '优秀奖' },
     ED: { 1: '第一届', 2: '第二届', 3: '第三届', 4: '第四届', 5: '第五届' },
     links: [['archive.html', '历届获奖作品', 'archive'], ['enter.html', '参赛类别与规则', 'enter'], ['jury.html', '评委', 'jury'], ['ceremony.html', '颁奖典礼', 'ceremony'], ['about.html', '关于大赛', 'about']],
-    logo: '第六届 WMPA', logoSub: '华盛顿国际手机摄影大赛', enter: '立即参赛', toggle: 'English', toggleTitle: 'Switch to English',
+    logo: '第六届 WMPA', logoSub: '华盛顿国际手机摄影大赛', enter: '立即投稿', toggle: 'English', toggleTitle: 'Switch to English',
     about: '华盛顿国际手机摄影大赛：为世界各地的手机摄影爱好者搭建平台，用一帧帧影像讲述身边的故事。',
     explore: '浏览', enterH: '参赛', enterLinks: [['categories', '参赛类别'], ['awards', '奖项设置'], ['requirements', '作品要求'], ['submit', '投稿方式']],
     contact: '联系我们', org: '主办单位：华盛顿文化艺术基金会（WCAF）',
@@ -31,7 +31,7 @@
     AW: { gold: '1st Place · Gold', silver: '2nd Place · Silver', bronze: '3rd Place · Bronze', hm: 'Honorable Mention' },
     ED: { 1: '1st WMPA', 2: '2nd WMPA', 3: '3rd WMPA', 4: '4th WMPA', 5: '5th WMPA' },
     links: [['archive.html', 'Winners’ Gallery', 'archive'], ['enter.html', 'Categories & Rules', 'enter'], ['jury.html', 'Jury', 'jury'], ['ceremony.html', 'Awards Ceremony', 'ceremony'], ['about.html', 'About', 'about']],
-    logo: '6th WMPA', logoSub: 'Washington International Mobile Photography Awards', enter: 'Enter Now', toggle: '中文', toggleTitle: '切换到中文',
+    logo: '6th WMPA', logoSub: 'Washington International Mobile Photography Awards', enter: 'Submit Your Work', toggle: '中文', toggleTitle: '切换到中文',
     about: 'The Washington International Mobile Photography Awards: a platform for mobile photographers everywhere to tell the stories around them, one frame at a time.',
     explore: 'Explore', enterH: 'Enter', enterLinks: [['categories', 'Categories'], ['awards', 'Awards'], ['requirements', 'Entry Requirements'], ['submit', 'How to Submit']],
     contact: 'Contact', org: 'Organized by the Washington Cultural Arts Foundation (WCAF)',
@@ -61,7 +61,7 @@
     '<div class="hright"><a class="lang" href="' + other + '" title="' + L.toggleTitle + '" lang="' + (ZH ? 'en' : 'zh-CN') + '">' + L.toggle + '</a>' +
     '<button class="burger" aria-label="Menu">&#9776;</button></div><nav class="nav">' +
     L.links.map(function (l) { return '<a href="' + l[0] + '"' + (page === l[2] ? ' class="on"' : '') + '>' + l[1] + '</a>'; }).join('') +
-    '<a class="btn" href="enter.html#submit">' + L.enter + '</a></nav></div>';
+    '<a class="btn" href="https://submit.gwmpa.org/index" target="_blank" rel="noopener">' + L.enter + '</a></nav></div>';
   document.body.insertBefore(hdr, document.body.firstChild);
   $('.burger', hdr).onclick = function () { $('.nav', hdr).classList.toggle('open'); };
 
